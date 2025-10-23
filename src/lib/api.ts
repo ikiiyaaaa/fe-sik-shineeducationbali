@@ -8,7 +8,7 @@ interface FetchOptions extends RequestInit {
     data?: unknown,
     options?: FetchOptions
   ): Promise<T> => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
   
     try {
       console.log(`API Request: ${method} ${baseUrl}${endpoint}`);
@@ -94,6 +94,11 @@ interface FetchOptions extends RequestInit {
       
       if (error instanceof Error && error.message.includes('CORS')) {
         throw error;
+      }
+      
+      // Handle Laravel Sanctum errors
+      if (error instanceof Error && error.message.includes('HasApiTokens')) {
+        throw new Error('Backend Error: Laravel Sanctum tidak dikonfigurasi dengan benar. Pastikan trait HasApiTokens ditambahkan ke model User di backend.');
       }
       
       throw new Error(`Network Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
