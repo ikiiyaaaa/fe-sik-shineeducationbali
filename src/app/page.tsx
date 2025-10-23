@@ -48,7 +48,7 @@ export default function Home() {
               <div className="bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded mt-3">
                 <p className="font-semibold text-sm mb-2">Solusi CORS:</p>
                 <ol className="text-xs text-left space-y-1">
-                  <li>1. Pastikan backend berjalan di port 8080</li>
+                  <li>1. Pastikan backend berjalan di port 80</li>
                   <li>2. Periksa konfigurasi CORS di backend Laravel</li>
                   <li>3. Tambahkan middleware CORS jika belum ada</li>
                 </ol>

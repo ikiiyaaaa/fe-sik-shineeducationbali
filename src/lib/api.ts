@@ -89,7 +89,7 @@ interface FetchOptions extends RequestInit {
       
       // Handle specific error types
       if (error instanceof TypeError && error.message.includes('fetch')) {
-        throw new Error("CORS Error: Tidak dapat mengakses backend. Pastikan backend berjalan di http://localhost:8000 dan CORS dikonfigurasi dengan benar.");
+        throw new Error("CORS Error: Tidak dapat mengakses backend. Pastikan backend berjalan di http://localhost:80 dan CORS dikonfigurasi dengan benar.");
       }
       
       if (error instanceof Error && error.message.includes('CORS')) {

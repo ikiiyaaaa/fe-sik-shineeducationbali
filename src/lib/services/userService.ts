@@ -13,12 +13,12 @@ export const userService = {
   },
 
   // Membuat user baru
-  async createUser(userData: any): Promise<UserWithRoles> {
+  async createUser(userData: Record<string, unknown>): Promise<UserWithRoles> {
     return apiRequest<UserWithRoles>('POST', '/api/users', userData);
   },
 
   // Update user
-  async updateUser(id: number, userData: any): Promise<UserWithRoles> {
+  async updateUser(id: number, userData: Record<string, unknown>): Promise<UserWithRoles> {
     return apiRequest<UserWithRoles>('PUT', `/api/users/${id}`, userData);
   },
 
